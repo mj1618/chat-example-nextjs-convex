@@ -1,5 +1,4 @@
 import ConvexClientProvider from "@/components/convex-client-provider";
-import { Toaster } from "@/components/ui/sonner";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
@@ -21,12 +20,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Toaster
-          richColors
-          theme="dark"
-          position="bottom-center"
-          className="![--width:450px] max-w-full"
-        />
         <NextTopLoader
           color="rgb(37, 99, 235)"
           height={3}
