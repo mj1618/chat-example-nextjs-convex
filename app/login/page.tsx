@@ -7,6 +7,8 @@ export default function SignIn() {
   const { signIn } = useAuthActions();
   const [step, setStep] = useState<"signUp" | "signIn">("signIn");
   const router = useRouter();
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [error, setError] = useState<boolean>(false);
 
   return (
     <div className="min-h-screen p-8 flex items-center justify-center bg-gray-50">
@@ -23,11 +25,16 @@ export default function SignIn() {
           style={{ boxSizing: "border-box" }}
           onSubmit={async (event) => {
             event.preventDefault();
-            console.log("event", event);
+            setIsLoggingIn(true);
             const formData = new FormData(event.currentTarget);
-            console.log("formData", formData);
-            await signIn("password", formData);
-            router.push("/chat-example/1234");
+            try {
+              await signIn("password", formData);
+              router.push("/chat-example/1234");
+            } catch (error: any) {
+              setError(true);
+            } finally {
+              setIsLoggingIn(false);
+            }
           }}
         >
           <div className="flex flex-col gap-1 w-full">
@@ -66,11 +73,22 @@ export default function SignIn() {
             />
           </div>
           <input name="flow" type="hidden" value={step} />
+
+          {error && (
+            <div className="text-red-500 text-sm">
+              Invalid email or password
+            </div>
+          )}
+
           <button
             type="submit"
             className="w-full cursor-pointer py-3 mt-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow transition text-base"
           >
-            {step === "signIn" ? "Sign in" : "Sign up"}
+            {isLoggingIn
+              ? "Logging in..."
+              : step === "signIn"
+                ? "Sign in"
+                : "Sign up"}
           </button>
           <button
             type="button"

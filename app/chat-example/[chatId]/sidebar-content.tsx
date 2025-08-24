@@ -62,7 +62,7 @@ export default function ChatSidebar() {
           </button>
         </div>
         {/* Previous chats container */}
-        <div className="space-y-4 overflow-y-auto px-2 py-4">
+        <div className="flex-1 space-y-4 overflow-y-auto px-2 py-4">
           {/* {chats != null && chats.length === 0 && (
             <div className="text-center text-slate-500">No chats yet</div>
           )} */}
@@ -92,9 +92,9 @@ export default function ChatSidebar() {
             </Link>
           ))}
         </div>
-        <div className="flex-1">
+        <div className="p-4 flex flex-col items-center justify-center">
           <button
-            className="w-full cursor-pointer"
+            className="w-full cursor-pointer hover:underline"
             onClick={async () => {
               await signOut();
               router.push("/login");
