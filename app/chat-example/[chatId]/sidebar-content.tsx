@@ -2,7 +2,7 @@ import { cn } from "@/app/utils";
 import { api } from "@/convex/_generated/api";
 import { useAuthActions } from "@convex-dev/auth/react";
 import { useMutation, useQuery } from "convex/react";
-import { Leaf, Loader2, Plus, Trash } from "lucide-react";
+import { Leaf, Loader2, LogOut, Plus, Trash } from "lucide-react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -94,7 +94,7 @@ export default function ChatSidebar() {
         </div>
         <div className="p-4 flex flex-col items-center justify-center">
           <button
-            className="w-full cursor-pointer hover:underline"
+            className="w-full cursor-pointer hover:underline text-sm flex items-center justify-center gap-x-2"
             onClick={async () => {
               await signOut();
               router.push("/login");

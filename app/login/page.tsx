@@ -32,7 +32,6 @@ export default function SignIn() {
               router.push("/chat-example/1234");
             } catch (error: any) {
               setError(true);
-            } finally {
               setIsLoggingIn(false);
             }
           }}
