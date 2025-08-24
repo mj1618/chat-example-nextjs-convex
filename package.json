@@ -12,8 +12,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/core": "0.37.0",
     "@clerk/clerk-react": "^5.22.12",
     "@clerk/nextjs": "^6.11.2",
+    "@convex-dev/auth": "^0.0.88",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^4.1.3",
