@@ -4,7 +4,7 @@ An example chat app using NextJS, Convex and Tailwind.
 
 ![UI](ui.png "UI")
 
-View live at [](https://)
+View live at [https://chat-example-nextjs-convex.vercel.app](https://chat-example-nextjs-convex.vercel.app)
 
 ## Local Development
 
