@@ -1,20 +1,53 @@
 # Chat Example
 
-## Env Vars
+An example chat app using NextJS, Convex and Tailwind.
 
+![UI](ui.png "UI")
+
+## Local Development
+
+- Create a convex account (and project) and login: `npx convex login`
+- Install: `npm i`
+- Setup convex auth: `npx @convex-dev/auth`
+- Create keys for auth, and then copy-paste the entire output into Convex Environment Variables (in the dashboard):
+
+```
+node generateKeys.mjs
+```
+
+- Add `.env.local` :
+
+```markdown
 # Deployment used by `npx convex dev`
 
-## `.env.local` - locally
+# convex
 
-CONVEX_DEPLOYMENT=
-NEXT_PUBLIC_CONVEX_URL=
-OPENAI_API_KEY=
-CLERK_JWT_ISSUER_DOMAIN=
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
+CONVEX_DEPLOYMENT=dev:superb-lobster-418 # replace with your convex project-environment name
+NEXT_PUBLIC_CONVEX_URL=https://superb-lobster-418.convex.cloud # replace with your convex project-environment name
+SITE_URL=http://localhost:3000
 
-## Environment variables in Convex
+# openai chatgpt
 
-- CLERK_JWT_ISSUER_DOMAIN
-- CLERK_SECRET_KEY
-- OPENAI_API_KEY
+OPENAI_API_KEY=sk-proj-...
+```
+
+- Start local server: `npm run dev`
+
+## Deployment
+
+- Create a vercel account and link to your chat-example github repo
+- Use the following for the build command:
+
+```bash
+if [ "$VERCEL_ENV" = "production" ]; then npx convex deploy --cmd 'next build' && npx convex run migrations:runAll --prod; else npm run build; fi
+```
+
+- Add all 4 environment variables to vercel, (but replace with their production values)
+- Add all 4 environment variables to your convex production environment
+- Configure convex auth for prod:
+
+```bash
+npx @convex-dev/auth --prod
+```
+
+- Commit to github to trigger a build in vercel

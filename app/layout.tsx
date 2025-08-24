@@ -1,12 +1,10 @@
 import ConvexClientProvider from "@/components/convex-client-provider";
-import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SupplyWise",
-  description: "Ordering, payments and inventory management for suppliers",
+  title: "ChatExample",
+  description: "Chat Example",
   icons: {
     icon: "/icon.svg",
   },
@@ -18,20 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <NextTopLoader
-          color="rgb(37, 99, 235)"
-          height={3}
-          showSpinner={false}
-          zIndex={999999}
-        />
-        <ClerkProvider
-          dynamic
-          publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-        >
-          <ConvexClientProvider>{children}</ConvexClientProvider>
-        </ClerkProvider>
+    <html lang="en" className="h-full bg-white dark:bg-gray-900">
+      <body className="h-full">
+        <ConvexClientProvider>{children}</ConvexClientProvider>
       </body>
     </html>
   );
