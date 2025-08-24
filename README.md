@@ -44,12 +44,6 @@ OPENAI_API_KEY=sk-proj-...
 if [ "$VERCEL_ENV" = "production" ]; then npx convex deploy --cmd 'next build' && npx convex run migrations:runAll --prod; else npm run build; fi
 ```
 
-- Add all 4 environment variables to vercel, (but replace with their production values)
-- Add all 4 environment variables to your convex production environment
-- Configure convex auth for prod:
-
-```bash
-npx @convex-dev/auth --prod
-```
-
+- Add `CONVEX_DEPLOYMENT`, `NEXT_PUBLIC_CONVEX_URL` and `SITE_URL` environment variables to vercel
+- Add all environment variables from `.env.local` to your convex project environment
 - Commit to github to trigger a build in vercel
