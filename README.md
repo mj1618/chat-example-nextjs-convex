@@ -4,6 +4,8 @@ An example chat app using NextJS, Convex and Tailwind.
 
 ![UI](ui.png "UI")
 
+View live at [](https://)
+
 ## Local Development
 
 - Create a convex account (and project) and login: `npx convex login`
