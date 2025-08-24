@@ -38,12 +38,6 @@ OPENAI_API_KEY=sk-proj-...
 ## Deployment
 
 - Create a vercel account and link to your chat-example github repo
-- Use the following for the build command:
-
-```bash
-if [ "$VERCEL_ENV" = "production" ]; then npx convex deploy --cmd 'next build' && npx convex run migrations:runAll --prod; else npm run build; fi
-```
-
 - Add `CONVEX_DEPLOYMENT`, `NEXT_PUBLIC_CONVEX_URL` and `SITE_URL` environment variables to vercel
 - Add all environment variables from `.env.local` to your convex project environment
 - Commit to github to trigger a build in vercel
