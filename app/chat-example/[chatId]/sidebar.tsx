@@ -23,7 +23,7 @@ export default function Example() {
         <body class="h-full">
         ```
       */}
-      <div>
+      <div className="flex-0">
         <Dialog
           open={sidebarOpen}
           onClose={setSidebarOpen}
