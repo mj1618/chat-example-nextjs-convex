@@ -39,7 +39,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex lg:flex-row flex-col h-[100vh] w-full">
+    <div className="flex lg:flex-row flex-col h-full w-full">
       <ChatSidebar />
       <div className="flex-1 flex w-full flex-col  bg-slate-200 lg:ml-64">
         <div className="max-w-4xl w-full mx-auto flex-1 space-y-6 overflow-y-auto bg-slate-200 p-4 text-sm leading-6 text-slate-900 dark:bg-slate-900 dark:text-slate-300 lg:text-base lg:leading-7">
