@@ -15,14 +15,6 @@ export default function Example() {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white dark:bg-gray-900">
-        <body class="h-full">
-        ```
-      */}
       <div className="flex-0">
         <Dialog
           open={sidebarOpen}
